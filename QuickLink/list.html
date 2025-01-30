@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickLink</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="tabs">
+        <button id="notesTabButton" class="tabButton settings-button">Keywords</button>
+        <button id="settingsTabButton" class="tabButton settings-button">Settings</button>
+    </div>
+
+    <div id="notesTab" class="tabContent">
+        <div id="searchContainer">
+			<input type="text" id="searchInput" placeholder="Search notes">
+			<button id="clearButton">
+                <img src="clear.png" alt="Clear">
+            </button>
+		</div>
+		<button id="addUrlButton" class="settings-button">Add QuickLink</button>
+        <div id="notesList"></div>
+		<div id="notesInfoContainer">
+			<button id="deleteAllButton">
+				<img src="delete.png" alt="Delete All" />
+			</button>
+			<div id="notesInfo"></div>
+		</div>
+    </div>
+
+    <div id="settingsTab" class="tabContent">
+        <div id="currentShortcut"></div>
+        <button id="shortcutPageButton" class="settings-button">Set shortcuts</button>
+        <br><br>
+		<span>Export to and import from JSON</span>
+		<br></br>
+        <button id="exportButton" class="settings-button">Export</button>
+        <button id="importButton" class="settings-button">Import</button>
+        <input type="file" id="importFileInput" style="display: none;">
+    </div>
+    
+    <div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>Edit QuickLink</h2>
+        <input type="text" id="editKeyword" placeholder="Keyword">
+        <textarea id="editUrls" placeholder="URLs (one per line)"></textarea>
+        <div class="modal-buttons">
+            <button id="saveEditButton" class="settings-button">Save</button>
+            <button id="cancelEditButton" class="settings-button">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2>Add shortcut</h2>
+        <input type="text" id="addKeyword" placeholder="Keyword">
+        <textarea id="addUrls" placeholder="URLs (one per line)"></textarea>
+        <div class="modal-buttons">
+            <button id="saveAddButton" class="settings-button">Save</button>
+            <button id="cancelAddButton" class="settings-button">Cancel</button>
+        </div>
+    </div>
+</div>
+    
+    <script src="list.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "QuickNotes",
+  "version": "0.5",
+  "description": "Quickly create and retrieve notes",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "omnibox": {
+    "keyword": "q"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Q"
+      },
+      "description": "Open Notes Manager"
+    },
+    "open_settings": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Q"
+      },
+      "description": "Open Settings Page"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["list.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
