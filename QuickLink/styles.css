@@ -1,0 +1,362 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+
+input[type="text"], textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+textarea#noteText {
+    resize: vertical;
+    height: 100px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.checkbox-container input {
+    margin-right: 5px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-buttons {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: transparent;
+	border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+button img {
+    width: 24px;
+    height: 24px;
+}
+
+#status {
+    font-size: 14px;
+    color: #888;
+    margin-left: 10px; /* Add some space between the buttons and status */
+    flex-grow: 1; /* Allow the status to take up remaining space */
+    text-align: left; /* Align text to the left */
+}
+
+#settingsButton {
+    padding: 5px;
+}
+
+#settingsButton img {
+    width: 24px;
+    height: 24px;
+}
+
+.popup {
+    width: 300px;
+	padding: 5px;
+}
+
+#tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tabButton {
+    background: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+     transition: all 0.3s ease;
+    color: #333;
+    font-weight: 500;
+}
+
+.tabButton.active {
+    background: #4CAF50;
+    color: white;
+}
+
+.tabButton.active:hover {
+    background: #4CAF50;
+}
+
+.tabContent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.tabContent.active {
+    display: block;
+}
+
+/* Additional styling for notes list and settings */
+#notesTab #notesList {
+    /* Your existing styles */
+}
+
+#notesInfoContainer {
+    display: flex;
+    align-items: center;
+}
+
+#deleteAllButton {
+    margin-right: 10px; /* Adjust spacing between the button and the notes information */
+}
+
+#settingsTab {
+    /* Your existing styles */
+}
+
+#settingsTab #currentShortcut {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.note-pair {
+    display: flex;
+     flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: flex-start; /* Align items to the start of the container */
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.note {
+	position: relative;
+	width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: top;
+	min-height: 100px;
+}
+@media (max-width: 768px) {
+    .note {
+        width: calc(50% - 10px); /* For smaller screens, switch to two per row */
+    }
+}
+@media (max-width: 480px) {
+   .note {
+        width: calc(100% - 10px); /* For even smaller screens, switch to one per row */
+    }
+}
+
+.note:hover {
+    background-color: #f0f0f0;
+}
+
+.note .edit-note-button,
+.note .delete-note-button {
+    position: absolute;
+    bottom: 5px; /* Adjust as needed */
+    right: 5px; /* Adjust as needed */
+}
+
+.note .delete-note-button {
+    right: 50px; /* Adjust as needed to create space between edit and delete buttons */
+}
+
+#searchContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 400px; /* Adjust the width of the search input as needed */
+    padding: 10px;
+    margin-right: 10px; /* Add some space between the input and button */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#searchButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#searchButton img {
+    width: 24px;
+    height: 24px;
+	padding-bottom: 5px;
+    border-radius: 5px; /* Optional: Add some border-radius for a nicer look */
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover img {
+    background-color: transparent; /* Change background color on hover */
+    border-radius: 5px;
+}
+
+
+.settings-button {
+    background: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                inset 0 1px 3px rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    font-weight: 500;
+     display: inline-block; /* To allow margin to be applied */
+}
+
+.settings-button:hover {
+    background: linear-gradient(145deg, #e0e0e0, #f5f5f5); /* Reverse gradient on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), /* Deeper shadow on hover */
+                inset 0 1px 3px rgba(255, 255, 255, 0.8); /* Brighter inset highlight */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.settings-button:active {
+    background: #e0e0e0; /* Slightly darker background on active */
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2); /* Inset shadow on press */
+    transform: translateY(1px); /* Pressed down effect */
+}
+
+.settings-button span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.settings-button:hover span {
+    transform: scale(1.05); /* Slight zoom-in on hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+	position: relative;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Text area for editing URL */
+#editUrls {
+   height: 200px;
+   resize: vertical;
+}
+
+#addUrls {
+   height: 200px;
+   resize: vertical;
+}
+
+/* Storage Bar */
+.storage-bar-container {
+	height: 10px; /* Adjust height as needed */
+	width: 100%;
+	background-color: #eee; /* Light gray background */
+    border-radius: 5px;
+	margin-top: 10px;
+	overflow: hidden; /* Ensure the bar stays within bounds */
+}
+
+.storage-bar {
+	height: 100%;
+	background-color: #4CAF50; /* Green fill color */
+	width: 0%;
+	transition: width 0.5s ease; /* Smooth width animation */
+}
+
+#addUrlButton {
+    margin-bottom: 20px;
+}
+#settingsTab > button {
+    margin-right: 10px;
+}
+
+#shortcutPageButton {
+	margin-bottom: 10px;
+}
